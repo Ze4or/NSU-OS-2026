@@ -23,8 +23,6 @@ int main(void) {
     addr.sun_family = AF_UNIX;
     strncpy(addr.sun_path, SOCKET_PATH, sizeof(addr.sun_path) - 1);
 
-    unlink(SOCKET_PATH);
-
     if (bind(server_fd, (struct sockaddr*)&addr, sizeof(addr)) == -1) {
         perror("bind");
         exit(EXIT_FAILURE);
